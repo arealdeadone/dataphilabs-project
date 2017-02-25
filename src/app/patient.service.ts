@@ -51,32 +51,7 @@ export class PatientService {
     return this.isPatientAdded;
   }
 
-  searchPatient(name:string){
-    let res: Patient[] = [];
-    let nameArray: any;
-    nameArray = name.split(" ");
-    if(nameArray.length == 1)
-    {
-      for(var i=0; i<this.patients.length; i++)
-      {
-        if(this.patients[i].firstname.trim() == nameArray[0].trim())
-        {
-          res.push(this.patients[i]);
-        }
-      }
-    }
-    if(nameArray.length == 2)
-    {
-      for(var i=0; i<this.patients.length; i++)
-      {
-        if(this.patients[i].firstname.trim() == nameArray[0].trim() && this.patients[i].lastname.trim() == nameArray[1].trim())
-        {
-          res.push(this.patients[i]);
-        }
-      }
-    }
-    this.patientsChanged.emit(res);
-  }
+
 
   reEmitstaticPatients(){
     this.patientsChanged.emit(this.patients);

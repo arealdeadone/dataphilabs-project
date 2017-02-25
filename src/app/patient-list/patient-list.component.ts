@@ -3,6 +3,7 @@ import {Patient} from "../shared/patient";
 import {PatientService} from "../patient.service";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {PatientSearchService} from "../patient-search.service";
 
 @Component({
   selector: 'app-patient-list',
@@ -11,7 +12,9 @@ import {Router} from "@angular/router";
 })
 export class PatientListComponent implements OnInit{
   searched = false;
-  constructor(private patientService: PatientService, private router: Router) { }
+  constructor(private patientService: PatientService,
+              private router: Router,
+              private patientSearch: PatientSearchService) { }
   patients: Patient[] = [];
   ngOnInit() {
       this.patients = this.patientService.staticPatients();
@@ -27,7 +30,7 @@ export class PatientListComponent implements OnInit{
 
   search(f: NgForm){
     //debugger;
-    this.patientService.searchPatient(f.value.searchText);
+    this.patientSearch.searchPatient(f.value.searchText);
     this.patientService.patientsChanged.subscribe(
       (patients: Patient[]) => {
         this.patients = patients;
@@ -42,6 +45,7 @@ export class PatientListComponent implements OnInit{
       (patients: Patient[]) => this.patients = patients
     );
     this.searched = false;
+    this.patientSearch.didSearch = false;
     this.router.navigate(['../view']);
   }
 

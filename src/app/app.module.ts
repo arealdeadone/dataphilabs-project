@@ -13,6 +13,7 @@ import { PatientListLoaderComponent } from './patient-list/patient-list-loader.c
 import {routing} from "./app.routing";
 import {PatientService} from "./patient.service";
 import { PatientStartComponent } from './patient-list/patient-start.component';
+import {PatientSearchService} from "./patient-search.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PatientStartComponent } from './patient-list/patient-start.component';
     HttpModule,
     routing
   ],
-  providers: [PatientService],
+  providers: [PatientService, PatientSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
