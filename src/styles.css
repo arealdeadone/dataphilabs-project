@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+  background: #FFECB3;
+  background: -webkit-linear-gradient(bottom right, #FFECB3, #FFE082, #FFD54F, #FFCA28),
+              -webkit-linear-gradient(bottom left, #FF9800, #FFA726, #FFB74D, #FFCC80);
+  background: -o-linear-gradient(bottom right, #FFECB3, #FFE082, #FFD54F, #FFCA28),
+              -o-linear-gradient(bottom left, #FF9800, #FFA726, #FFB74D, #FFCC80);
+  background: -moz-linear-gradient(bottom right, #FFECB3, #FFE082, #FFD54F, #FFCA28),
+              -moz-linear-gradient(bottom left, #FF9800, #FFA726, #FFB74D, #FFCC80);
+  background: linear-gradient(bottom right, #FFECB3, #FFE082, #FFD54F, #FFCA28),
+              linear-gradient(bottom left, #FF9800, #FFA726, #FFB74D, #FFCC80);
+}
